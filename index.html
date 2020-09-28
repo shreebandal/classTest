@@ -31,6 +31,18 @@
   <body>
     <div id="clock" class="fixed-top"></div>
     <div class="container" style="margin-top: 210px;">
+        <div class="d-flex justify-content-center"><h3><strong>रा. जि. प. प्राथमिक शाळा - रावे</strong> </h3></div>
+        <div class="d-flex justify-content-center"><h3><strong>ता. - पेण </strong></h3></div>
+        <div class="d-flex justify-content-center"><h3><strong>इयत्ता -पहिली (ब)</strong></h3></div>
+        <div class="d-flex justify-content-center"><h3><strong>विषय -गणित</strong></h3></div>
+        <div class="d-flex justify-content-center"><h3><strong>गुण -15</strong> </h3></div>
+        <div class="d-flex justify-content-center"><h3><strong> ऑनलाईन चाचणी</strong></h3></div>
+        <div class="input-group my-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3"><strong>विद्यार्थ्यांचे नाव :</strong></span>
+            </div>
+            <input type="text" class="form-control" id="name">
+          </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">1) रिकाम्या जागी योग्य शब्द भरा :
                 <ul class="list-group list-group-horizontal mt-2">
@@ -587,39 +599,46 @@
             }
         }
         function displayMarks(){
-            clearInterval(time);
-            let marks = 0;
-            if(document.getElementById("blank1").value == "1")
-                marks++;
-            if(document.getElementById("addNum1").value == "1")
-                marks++;
-            if(document.getElementById("subNum2").value == "2")
-                marks++;
-            if(document.getElementById("falseOpt4").value == "4")
-                marks++;
-            if(document.getElementById("trueOpt3").value == "3")
-                marks++;
-            if(document.getElementById("max2").value == "2")
-                marks++;
-            if(document.getElementById("min4").value == "4")
-                marks++;
-            if(document.getElementById("total3").value == "3")
-                marks++;
-            if(document.getElementById("nextNum4").value == "4")
-                marks++;
-            if(document.getElementById("lastNum2").value == "2")
-                marks++;
-            if(document.getElementById("middleNum4").value == "4")
-                marks++;
-            if(document.getElementById("days4").value == "4")
-                marks++;
-            if(document.getElementById("addPic1").value == "1")
-                marks++;
-            if(document.getElementById("subPic2").value == "2")
-                marks++;
-            if(document.getElementById("totalPic3").value == "3")
-                marks++;
-            document.body.innerHTML = `<div class="marks">अंतिम गुण : ${marks}</div>`;
+            if(document.getElementById("name").value != ""){
+                clearInterval(time);
+                localStorage.currentMinute = 0;
+                localStorage.currentSeconds = 0;
+                let marks = 0;
+                if(document.getElementById("blank1").checked)
+                    marks++;
+                if(document.getElementById("addNum1").checked)
+                    marks++;
+                if(document.getElementById("subNum2").checked)
+                    marks++;
+                if(document.getElementById("falseOpt4").checked)
+                    marks++;
+                if(document.getElementById("trueOpt3").checked)
+                    marks++;
+                if(document.getElementById("max2").checked)
+                    marks++;
+                if(document.getElementById("min4").checked)
+                    marks++;
+                if(document.getElementById("total3").checked)
+                    marks++;
+                if(document.getElementById("nextNum4").checked)
+                    marks++;
+                if(document.getElementById("lastNum2").checked)
+                    marks++;
+                if(document.getElementById("middleNum4").checked)
+                    marks++;
+                if(document.getElementById("days4").checked)
+                    marks++;
+                if(document.getElementById("addPic1").checked)
+                    marks++;
+                if(document.getElementById("subPic2").checked)
+                    marks++;
+                if(document.getElementById("totalPic3").checked)
+                    marks++;
+                document.body.innerHTML = `<div class="marks"><div>विद्यार्थ्यांचे नाव :  ${document.getElementById("name").value}</div><div>अंतिम गुण : ${marks}</div></div>`;
+            }
+            else{
+                alert("कृपया आपले नाव टाका");
+            }
         }
     </script>
 </body>
