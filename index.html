@@ -599,7 +599,9 @@
             }
         }
         function displayMarks(){
-            if(document.getElementById("name").value != ""){
+            if(!localStorage.name)
+                localStorage.name = document.getElementById("name").value;
+            if(localStorage.name != ""){
                 clearInterval(time);
                 localStorage.currentMinute = 0;
                 localStorage.currentSeconds = 0;
@@ -634,7 +636,7 @@
                     marks++;
                 if(document.getElementById("totalPic3").checked)
                     marks++;
-                document.body.innerHTML = `<div class="marks"><div>विद्यार्थ्यांचे नाव :  ${document.getElementById("name").value}</div><div>अंतिम गुण : ${marks}</div></div>`;
+                document.body.innerHTML = `<div class="marks"><div>विद्यार्थ्यांचे नाव :  ${localStorage.name}</div><div>अंतिम गुण : ${marks}</div></div>`;
             }
             else{
                 alert("कृपया आपले नाव टाका");
